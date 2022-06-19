@@ -7,13 +7,11 @@ import { MapComponent } from './map/map.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { DialogIPsComponent } from './dialog-ips/dialog-ips.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    DialogIPsComponent
   ],
   imports: [
     BrowserModule,

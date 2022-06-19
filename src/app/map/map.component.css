@@ -1,66 +1,172 @@
-*{
+* {
   margin: 0;
   padding: 0;
-
-  }
-h1{
-   text-align: center;
-   color: white;
-   margin-top:50px;
+  box-sizing: border-box;
 }
-#map{
-  height: 700px;
 
-
+:root {
+  --VeryDarkGray: hsl(0, 0%, 17%);
+  --DarkGray: hsl(0, 0%, 59%);
 }
-.img {
 
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  width: 100%;
+  min-height: 34vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url("../../assets/pattern-bg.png");
   background-size: cover;
+  padding-bottom: 4.5rem;
+  position: relative;
 }
 
-
-
-  .searchbar{
-  margin-bottom: 50px;
-  margin-top: 20px;
-  height: 60px;
-  background-color: #353b48;
-  border-radius: 30px;
-  padding: 10px;
-  }
-
-  .search_input{
+.header h1 {
+  font-size: 25px;
   color: white;
-  border: 0;
-  outline: 0;
-  background: none;
-  width: 0;
-  caret-color:transparent;
-  line-height: 40px;
-  transition: width 0.4s linear;
-  }
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
 
-  .searchbar:hover > .search_input{
-  padding: 0 10px;
-  width: 450px;
-  caret-color:red;
-  transition: width 0.4s linear;
-  }
-
-  .searchbar:hover > .search_icon{
-  background: white;
-  color: #e74c3c;
-  }
-
-  .search_icon{
-  height: 40px;
-  width: 40px;
-  float: right;
+.header form {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  color:white;
-  text-decoration:none;
+  width: 500px;
+}
+
+.header form input {
+  flex: 9;
+  min-height: 2.5rem;
+  border: none;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  cursor: pointer;
+}
+
+.header form input:focus {
+  outline: none;
+}
+
+.header form button {
+  flex: 1;
+  min-height: 2.5rem;
+  border: none;
+  background: var(--VeryDarkGray);
+  background-size: cover;
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+}
+
+.header form button:hover {
+  opacity: 0.9;
+}
+
+.header .outputs {
+  width: 80vw;
+  min-height: 8rem;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -4rem;
+  gap: 1rem;
+  -webkit-box-shadow: 0px 10px 21px -8px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 10px 21px -8px rgba(0, 0, 0, 0.13);
+  z-index: 9;
+}
+
+.header .outputs .output {
+  width: 220px;
+  min-height: 5.5rem;
+}
+
+.header .outputs .output:not(:last-child) {
+  border-right: 1px solid lightgray;
+}
+
+.header .outputs .output h3 {
+  font-size: 14px;
+  color: var(--DarkGray);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.header .outputs .output h2 {
+  font-size: 18px;
+  color: var(--VeryDarkGray);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.map {
+  width: 100%;
+  min-height: 66vh;
+  z-index: 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 768px) {
+  .header .outputs {
+      height: 100%;
+      min-height: 15rem;
+      flex-direction: column;
+      top: 10rem;
+      overflow: visible;
   }
+  .header .outputs .output h3 {
+      text-align: center;
+  }
+  .header .outputs .output h2 {
+      text-align: center;
+      font-size: 20px;
+  }
+  .header .outputs .output {
+      min-height: 1.5rem;
+  }
+  .header .outputs .output:not(:last-child) {
+      border: none;
+  }
+}
+
+@media (max-width: 615px) {
+  .header form {
+      width: 375px;
+  }
+}
+
+@media (max-width: 375px) {
+  .header form {
+      width: 300px;
+  }
+    .header .outputs .output h2 {
+      font-size: 16px;
+  }
+} ;
