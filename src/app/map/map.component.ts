@@ -1,16 +1,21 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { MapService } from './../map.service';
+import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements AfterViewInit {
- private map: any;
+export class MapComponent implements OnInit {
+  map: L.Map | undefined;
 
-  constructor() { }
+  constructor (public MapService : MapService) { }
 
-  ngAfterViewInit(): void {
+
+  ngOnInit(): void {
+    this.MapService.getCoords();
+  }
+  /*ngAfterViewInit(): void {
     this.initMap();
   }
   private initMap(): void {
@@ -19,7 +24,7 @@ export class MapComponent implements AfterViewInit {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
 }).addTo(this.map);
-  }
+  }*/
 
 
 }

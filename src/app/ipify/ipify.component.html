@@ -1,0 +1,51 @@
+<div class="container__main">
+  <div class="container__title">
+    <h1 class="title">IP Address Tracker</h1>
+  </div>
+
+  <div class="master">
+    <div class="container__search">
+      <div class="search">
+        <form class="form" [formGroup]="searchForm">
+          <input type="text" formControlName="search" placeholder="Search for any IP address or domain" #search>
+          <button class="button" (click)="searchValue(search.value)">
+            <img src="./../assets/images/icon-arrow.svg" alt="">
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="container__result" *ngIf="response">
+      <div class="result">
+        <div class="container__items">
+          <div class="id__address">
+            <span class="item">Ip Address</span>
+            <span class="result__data">{{response?.ip}}</span>
+          </div>
+          <hr>
+          <div class="location">
+            <span class="item">Location</span>
+            <span class="result__data">{{response?.location?.city}}</span>
+          </div>
+          <hr>
+          <div class="timezone">
+            <span class="item">Timezone</span>
+            <span class="result__data">{{response?.location?.timezone}}</span>
+          </div>
+          <hr>
+          <div class="isp">
+            <span class="item">ISP</span>
+            <span class="result__data">{{response?.isp}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Introdução do Mapa -->
+<div *ngIf="MapService.response">
+  <app-map></app-map>
+</div>
+
