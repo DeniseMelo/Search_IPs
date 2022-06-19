@@ -16,27 +16,27 @@
     </div>
 
 
-    <div class="container__result" *ngIf="response">
+    <div class="container__result" *ngIf="meuIP">
       <div class="result">
         <div class="container__items">
           <div class="id__address">
             <span class="item">Ip Address</span>
-            <span class="result__data">{{response?.ip}}</span>
+            <span class="result__data">{{meuIP?.ip}}</span>
           </div>
           <hr>
           <div class="location">
             <span class="item">Location</span>
-            <span class="result__data">{{response?.location?.city}}</span>
+            <span class="result__data">{{meuIP?.location?.city}}</span>
           </div>
           <hr>
           <div class="timezone">
             <span class="item">Timezone</span>
-            <span class="result__data">{{response?.location?.timezone}}</span>
+            <span class="result__data">{{meuIP?.location?.timezone}}</span>
           </div>
           <hr>
           <div class="isp">
             <span class="item">ISP</span>
-            <span class="result__data">{{response?.isp}}</span>
+            <span class="result__data">{{meuIP?.isp}}</span>
           </div>
         </div>
       </div>

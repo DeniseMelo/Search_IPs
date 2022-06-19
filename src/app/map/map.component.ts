@@ -13,7 +13,7 @@ export class MapComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.MapService.getCoords();
+    this.MapService.getCoordenadas();
   }
   /*ngAfterViewInit(): void {
     this.initMap();

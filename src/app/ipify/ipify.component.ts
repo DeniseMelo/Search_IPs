@@ -9,8 +9,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class IpifyComponent implements OnInit {
 
-  response: any;
-  name: string | undefined;
+  meuIP: any;
+  nome: string | undefined;
   lat: string | undefined;
   lng: string | undefined;
   search: any;
@@ -28,17 +28,15 @@ export class IpifyComponent implements OnInit {
   });
 
   searchValue(search: string) {
-    this.MapService.response = false;
     this.MapService.searchValue(search);
     this.getData();
   }
 
   getData() {
     this.MapService.getCity().subscribe(res => {
-      this.response = res;
-      this.MapService.response = true;
-      this.MapService.coordLat = this.response.location.lat;
-      this.MapService.coordLon = this.response.location.lng;
+      this.meuIP = res;
+      this.MapService.coordLat = this.meuIP.location.lat;
+      this.MapService.coordLon = this.meuIP.location.lng;
     })
   }
 }

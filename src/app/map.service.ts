@@ -16,6 +16,7 @@ export class MapService {
   coordLon: any;
   coordLat: any;
   response = false;
+  meuIP: boolean | undefined;
 
 
   constructor(private http: HttpClient) { }
@@ -30,7 +31,7 @@ export class MapService {
     return this.http.get(`${this.baseURL}?apiKey=${this.API}&ipAddress=${this.ipAddress}`)
   }
 
-  getCoords() {
+  getCoordenadas() {
     var map = L.map('map', { center: [this.coordLat, this.coordLon], zoom: 11 });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     L.marker([this.coordLat, this.coordLon], {
