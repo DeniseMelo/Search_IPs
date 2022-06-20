@@ -10,13 +10,12 @@ import { icon } from 'leaflet';
 export class MapService {
 
 
-  private readonly baseURL = 'https://geo.ipify.org/api/v2/country,city?apiKey=at_BQXeTPRyyn0GbbRJurP9dXDpfsWD3&ipAddress=8.8.8.8'
+  baseUrl = 'https://geo.ipify.org/api/v1';
   API = "at_X9OQXshEMaRGiHQT74sjM7WumCGYi";
   ipAddress: string | undefined;
   coordLon: any;
   coordLat: any;
-  meuIP: boolean | undefined;
-
+  response = false;
 
   constructor(private http: HttpClient) { }
 
@@ -25,13 +24,12 @@ export class MapService {
     this.getCity();
   }
 
-
   getCity() {
-    return this.http.get(`${this.baseURL}?apiKey=${this.API}&ipAddress=${this.ipAddress}`)
+    return this.http.get(`${this.baseUrl}?apiKey=${this.API}&ipAddress=${this.ipAddress}`)
   }
 
-  getCoordenadas() {
-    var map = L.map('map', { center: [this.coordLat, this.coordLon], zoom: 11 });
+  getCoords() {
+    var map = L.map('map', { center: [this.coordLat, this.coordLon], zoom: 13 });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     L.marker([this.coordLat, this.coordLon], {
       icon: icon({
@@ -42,5 +40,6 @@ export class MapService {
       })
     }).addTo(map)
   }
+
 
 }

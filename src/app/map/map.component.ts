@@ -6,24 +6,12 @@ import * as L from 'leaflet';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements AfterViewInit {
-  map: L.Map | undefined;
+export class MapComponent implements OnInit {
 
-  constructor (public MapService : MapService) { }
+  constructor(public MapService: MapService) { }
 
-
-
-  ngAfterViewInit(): void {
-    this.initMap();
+  ngOnInit(): void {
+    this.MapService.getCoords();
   }
-  private initMap(): void {
-    this.map = L.map('map').setView([-23.2927,  -51.1732],15)
-   const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-});
-   tiles.addTo(this.map);
-  }
-
-
 }
+

@@ -9,17 +9,16 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class IpifyComponent implements OnInit {
 
-  meuIP: any;
+  response: any;
+  name: string | undefined;
+
   lat: string | undefined;
   lng: string | undefined;
   search: any;
+  constructor(private fb: FormBuilder, public MapService: MapService) {
+  }
 
-  constructor(
-    private fb: FormBuilder,
-    public MapService: MapService,
-    ) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   searchForm = this.fb.group({
@@ -27,15 +26,18 @@ export class IpifyComponent implements OnInit {
   });
 
   searchValue(search: string) {
+    this.MapService.response = false;
     this.MapService.searchValue(search);
     this.getData();
   }
 
   getData() {
     this.MapService.getCity().subscribe(res => {
-      this.meuIP = res;
-      this.MapService.coordLat = this.meuIP.location.lat;
-      this.MapService.coordLon = this.meuIP.location.lng;
+      this.response = res;
+      this.MapService.response = true;
+      this.MapService.coordLat = this.response.location.lat;
+      this.MapService.coordLon = this.response.location.lng;
     })
   }
 }
+

@@ -9,44 +9,43 @@
         <form class="form" [formGroup]="searchForm">
           <input type="text" formControlName="search" placeholder="Search for any IP address or domain" #search>
           <button class="button" (click)="searchValue(search.value)">
-            <img src="../../assets/icon-arrow.svg" alt="">
+            <img src="../../assets/icon-arrow.svg" alt="icon localização">
           </button>
         </form>
       </div>
     </div>
 
-
-    <div class="container__result" *ngIf="meuIP">
+    <div class="container__result" *ngIf="response">
       <div class="result">
         <div class="container__items">
           <div class="id__address">
             <span class="item">Ip Address</span>
-            <span class="result__data">{{meuIP?.ip}}</span>
+            <span class="result__data">{{response?.ip}}</span>
           </div>
           <hr>
           <div class="location">
             <span class="item">Location</span>
-            <span class="result__data">{{meuIP?.location?.city}}</span>
+            <span class="result__data">{{response?.location?.city}}</span>
           </div>
           <hr>
           <div class="location">
             <span class="item">State</span>
-            <span class="result__data">{{meuIP?.location?.region}}</span>
+            <span class="result__data">{{response?.location?.region}}</span>
           </div>
           <hr>
           <div class="location">
             <span class="item">Country</span>
-            <span class="result__data">{{meuIP?.location?.country}}</span>
+            <span class="result__data">{{response?.location?.country}}</span>
           </div>
           <hr>
           <div class="timezone">
             <span class="item">Timezone</span>
-            <span class="result__data">{{meuIP?.location?.timezone}}</span>
+            <span class="result__data">{{response?.location?.timezone}}</span>
           </div>
           <hr>
           <div class="isp">
             <span class="item">ISP</span>
-            <span class="result__data">{{meuIP?.isp}}</span>
+            <span class="result__data">{{response?.isp}}</span>
           </div>
         </div>
       </div>
@@ -54,8 +53,6 @@
   </div>
 </div>
 
-<!-- Introdução do Mapa -->
-<div *ngIf="MapService.meuIP">
+<div *ngIf="MapService.response">
   <app-map></app-map>
 </div>
-
