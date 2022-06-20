@@ -1,6 +1,9 @@
 # Frontend Mentor - solução de rastreador de endereço IP- Search_IPs
 
 O Search_IPs consiste em uma aplicação no FrontEnd para a pesquisa de IPs e sua localização no mapa. A aplicação se baseou no  [desafio do rastreador de endereço IP no Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Com isso, foi possível aperfeiçoar o uso de APIs e sua integração com mapas através do uso da API IPIFY e LEAFLET
+<div align="center">
+<img src="https://github.com/DeniseMelo/Search_IPs/blob/main/src/assets/Peek%2020-06-2022%2011-51.gif" width="400px" height= "400px" />
+</div>
 
 ### Links
 - Link Leaflet map https://leafletjs.com/examples/quick-start/
