@@ -10,7 +10,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class IpifyComponent implements OnInit {
 
   meuIP: any;
-  nome: string | undefined;
   lat: string | undefined;
   lng: string | undefined;
   search: any;

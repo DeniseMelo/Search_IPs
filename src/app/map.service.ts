@@ -10,12 +10,11 @@ import { icon } from 'leaflet';
 export class MapService {
 
 
-  private readonly baseURL = 'https://geo.ipify.org/api/v2/country?apiKey=at_BQXeTPRyyn0GbbRJurP9dXDpfsWD3&ipAddress=8.8.8.8'
+  private readonly baseURL = 'https://geo.ipify.org/api/v2/country,city?apiKey=at_BQXeTPRyyn0GbbRJurP9dXDpfsWD3&ipAddress=8.8.8.8'
   API = "at_X9OQXshEMaRGiHQT74sjM7WumCGYi";
   ipAddress: string | undefined;
   coordLon: any;
   coordLat: any;
-  response = false;
   meuIP: boolean | undefined;
 
 
