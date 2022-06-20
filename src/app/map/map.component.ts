@@ -15,14 +15,14 @@ export class MapComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap();
-
   }
   private initMap(): void {
     this.map = L.map('map').setView([-23.2927,  -51.1732],15)
    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
-});tiles.addTo(this.map);
+});
+   tiles.addTo(this.map);
   }
 
 
